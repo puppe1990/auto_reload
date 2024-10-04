@@ -1,6 +1,7 @@
 require 'listen'
 require 'faye/websocket'
 require 'thread'
+require 'rails' # Ensure Rails is loaded
 
 module AutoReload
   class Server
@@ -11,8 +12,13 @@ module AutoReload
       @clients = []
 
       # Start listening to file changes in the 'app/views' directory
-      @listener = Listen.to('app/views') do |_modified, _added, _removed|
-        @clients.each { |ws| ws.send('reload') }
+      @listener = Listen.to('app/views') do |modified, added, removed|
+        changed_files = modified + added + removed
+        unless changed_files.empty?
+          message = "AutoReload: Detected changes in files: #{changed_files.join(', ')}"
+          Rails.logger.info message
+          @clients.each { |ws| ws.send('reload') }
+        end
       end
       @listener.start
     end
