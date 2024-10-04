@@ -26,9 +26,9 @@ ruby
 
 Copy code
 
-`gem 'auto_reload', git: 'https://github.com/yourusername/auto_reload'` 
+`gem 'auto_reload', git: 'https://github.com/puppe1990/auto_reload'` 
 
-Replace `yourusername` with your actual GitHub username if you have pushed the gem to GitHub. If you've published the gem to [RubyGems](https://rubygems.org), you can install it via:
+Replace `puppe1990` with your actual GitHub username if you have pushed the gem to GitHub. If you've published the gem to [RubyGems](https://rubygems.org), you can install it via:
 
 ruby
 
@@ -121,7 +121,7 @@ To release a new version:
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at [https://github.com/yourusername/auto_reload](https://github.com/yourusername/auto_reload). This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at [https://github.com/puppe1990/auto_reload](https://github.com/puppe1990/auto_reload). This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](CODE_OF_CONDUCT.md).
 
 ### Steps to Contribute
 
