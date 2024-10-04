@@ -1,39 +1,161 @@
-# AutoReload
 
-TODO: Delete this and the text below, and describe your gem
+# AutoReload Gem
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/auto_reload`. To experiment with that code, run `bin/console` for an interactive prompt.
+**AutoReload** is a Ruby gem that enhances your Rails development workflow by automatically reloading the browser whenever you save changes to your view files. This functionality mimics the live reloading experience commonly found in frontend frameworks like React, making your development process more efficient and seamless.
+
+## Table of Contents
+
+-   [Features](#features)
+-   [Installation](#installation)
+-   [Usage](#usage)
+-   [Configuration](#configuration)
+-   [Contributing](#contributing)
+-   [License](#license)
+
+## Features
+
+-   **Automatic Browser Reloading**: Detects changes in your view files and reloads the browser instantly.
+-   **Seamless Integration**: Easily integrates into your Rails application's middleware stack.
+-   **Development Focused**: Designed to work in the development environment without affecting production.
 
 ## Installation
 
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
+Add this line to your application's `Gemfile`:
 
-Install the gem and add to the application's Gemfile by executing:
+ruby
 
-    $ bundle add UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG
+Copy code
 
-If bundler is not being used to manage dependencies, install the gem by executing:
+`gem 'auto_reload', git: 'https://github.com/yourusername/auto_reload'` 
 
-    $ gem install UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG
+Replace `yourusername` with your actual GitHub username if you have pushed the gem to GitHub. If you've published the gem to [RubyGems](https://rubygems.org), you can install it via:
+
+ruby
+
+Copy code
+
+`gem 'auto_reload'` 
+
+Then execute:
+
+bash
+
+Copy code
+
+`bundle install` 
+
+Or install it yourself as:
+
+bash
+
+Copy code
+
+`gem install auto_reload` 
 
 ## Usage
 
-TODO: Write usage instructions here
+The gem integrates automatically with your Rails application. No additional configuration is required. Simply start your Rails server:
+
+bash
+
+Copy code
+
+`rails server` 
+
+Now, when you edit and save any view file in `app/views`, your browser will automatically reload the page, reflecting your changes instantly.
+
+## Configuration
+
+By default, AutoReload watches the `app/views` directory for changes. If you need to customize the directories to watch or other settings, you can modify the gem's configuration (if such functionality is implemented).
+
+**Note**: Currently, the gem watches `app/views` by default. Future updates may include customizable configurations.
+
+## How It Works
+
+The AutoReload gem consists of two main components:
+
+1.  **File Watcher**: Uses the `listen` gem to monitor changes in your view files.
+2.  **WebSocket Server**: Utilizes `faye-websocket` to establish a WebSocket connection between the server and the browser.
+
+When a file change is detected, a 'reload' message is sent to the browser via WebSocket, triggering a page reload.
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+To install this gem onto your local machine for development purposes, run:
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+bash
+
+Copy code
+
+`bundle exec rake install` 
+
+To release a new version:
+
+1.  Update the version number in `version.rb`.
+    
+2.  Commit your changes:
+    
+    bash
+    
+    Copy code
+    
+    `git commit -am "Bump version to x.x.x"` 
+    
+3.  Push to GitHub:
+    
+    bash
+    
+    Copy code
+    
+    `git push origin master` 
+    
+4.  Publish the gem:
+    
+    bash
+    
+    Copy code
+    
+    `gem build auto_reload.gemspec
+    gem push auto_reload-x.x.x.gem` 
+    
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/auto_reload. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/auto_reload/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at [https://github.com/yourusername/auto_reload](https://github.com/yourusername/auto_reload). This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](CODE_OF_CONDUCT.md).
+
+### Steps to Contribute
+
+1.  Fork the repository.
+    
+2.  Create a new branch for your feature or bugfix:
+    
+    bash
+    
+    Copy code
+    
+    `git checkout -b my-feature-branch` 
+    
+3.  Make your changes.
+    
+4.  Commit your changes with clear messages:
+    
+    bash
+    
+    Copy code
+    
+    `git commit -am "Add new feature"` 
+    
+5.  Push to the branch:
+    
+    bash
+    
+    Copy code
+    
+    `git push origin my-feature-branch` 
+    
+6.  Create a new Pull Request on GitHub.
+    
 
 ## License
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
-## Code of Conduct
-
-Everyone interacting in the AutoReload project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/auto_reload/blob/master/CODE_OF_CONDUCT.md).
+The gem is available as open source under the terms of the [MIT License](LICENSE).
