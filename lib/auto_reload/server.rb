@@ -15,7 +15,7 @@ module AutoReload
       @listener = Listen.to('app/views') do |modified, added, removed|
         changed_files = modified + added + removed
         unless changed_files.empty?
-          message = "AutoReload: Detected changes in files: #{changed_files.join(', ')}"
+          message = "[AutoReload] Detected changes in files: #{changed_files.join(', ')}"
           Rails.logger.info message
           @clients.each { |ws| ws.send('reload') }
         end
