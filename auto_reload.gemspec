@@ -8,10 +8,10 @@ Gem::Specification.new do |spec|
   spec.authors = ["puppe1990"]
   spec.email = ["matheus.puppe90@hotmail.com"]
 
-  spec.summary = "TODO: Write a short summary, because RubyGems requires one."
-  spec.description = "TODO: Write a longer description or delete this line."
-  spec.homepage = "TODO: Put your gem's website or public repo URL here."
-  spec.license = "MIT"
+  spec.summary       = "AutoReload gem for automatic browser reloading in Rails"
+  spec.description   = "A gem that automatically reloads the browser when you edit and save view files in a Rails application."
+  spec.homepage      = "https://github.com/puppe1990/auto_reload"
+  spec.license       = "MIT"
   spec.required_ruby_version = ">= 2.6.0"
 
   spec.add_dependency 'listen', '~> 3.0'
@@ -21,9 +21,9 @@ Gem::Specification.new do |spec|
 
   spec.metadata["allowed_push_host"] = "TODO: Set to your gem server 'https://example.com'"
 
-  spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "TODO: Put your gem's public repo URL here."
-  spec.metadata["changelog_uri"] = "TODO: Put your gem's CHANGELOG.md URL here."
+  spec.metadata["homepage_uri"] = "https://github.com/puppe1990/auto_reload"
+  spec.metadata["source_code_uri"] = "https://github.com/puppe1990/auto_reload"
+  spec.metadata["changelog_uri"] = "https://github.com/puppe1990/auto_reload/blob/master/CHANGELOG.md"  
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
